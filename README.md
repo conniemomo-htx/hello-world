@@ -1,4 +1,4 @@
 # hello-world
-Basic playground items
+Hello, world.
 
-Welcome to teamotoncha playground repo, where we'll store code snippets and experimental programs.
+This repo is for Python practice using online tutorials and guides. It will also include any really basic scripts and little projects that I work on with my kid.
