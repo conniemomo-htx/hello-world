@@ -8,25 +8,32 @@
 #and one number to divide by (check). If check divides evenly 
 #into num, tell that to the user. If not, print a different appropriate message.
 
-def main():
-	num = input("Please enter a number: ")
+def checkDivisible(num, div):
 	msg = "Your number is "
-
+	
 	# Need to check for decimals and round
 	# Need to check for alphabet and symbols 
-			
+	
 	if (int(num) == 0):
-		msg += "zero. "
-		
-	elif (int(num) % 2 == 0):
-		msg += "even. "
-		
-		if(int(num) % 4 == 0):
-			msg += "It is also a multiple of 4."	
-			
+			msg += "zero. "
+				
+	elif (int(num) % int(div) == 0):
+		msg += num + " and is divisible by " + div + ". "	
+
 	else:
-		msg += "odd. "
+		msg += num + " and is not divisible by " + div + ". "
+	
+	return msg		
+			
+
+def main():
+	num = input("Please enter a number: ")
+	div = input("Check to see if it is divisible by: ")
 		
-	print(msg)
+	msg = checkDivisible(num, div)	
+	print (msg)
+		
+	if (int(num) % 4 == 0):
+		print("It is also a multiple of 4.")	
 
 main()
