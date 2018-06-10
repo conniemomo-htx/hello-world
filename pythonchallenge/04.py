@@ -1,6 +1,6 @@
 #!/usr/local/bin/python3
-# Code for: Python Challenge 3
-# http://www.pythonchallenge.com/pc/def/equality.html
+# Code for: Python Challenge 4
+# http://www.pythonchallenge.com/pc/def/linkedlist.php
 
 import urllib.request
 import re

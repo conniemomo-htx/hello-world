@@ -1,39 +1,18 @@
 #!/usr/local/bin/python3
 # Code for: Python Challenge 2
-# http://www.pythonchallenge.com/pc/def/map.html
+# http://www.pythonchallenge.com/pc/def/ocr.html
 
-def decode(y, alpha):
-    returnVal = y
+myFile = open("02.txt", 'r')
+lines = myFile.readlines()
+myFile.close()
 
-    if (y in alphabet):
-        if (y == "y"):
-            returnVal = alphabet[0]
-        elif (y == "z"):
-            returnVal = alphabet[1]
-        else:
-            returnVal = alphabet[ alphabet.index( y ) + 2 ]
+myStr = ''.join(lines)
+uniqueChars = set(myStr)
 
-    return returnVal
+charCount = { uc: myStr.count(uc) for uc in uniqueChars }
 
-# Main Program
-msgTxt = "g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dmp. "
-msgTxt += "bmgle gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle. "
-msgTxt += "sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj."
+rareChars = [ char for char, count in charCount.items() if charCount[char] == 1 ]
+rareChars.sort()
+print(rareChars)
 
-# Debug/Answer case
-# msgTxt = "map"
-
-# Original solution
-alphabet = list("abcdefghijklmnopqrstuvwxyz")
-decodedMessage = ''.join([decode(x, alphabet) for x in list(msgTxt)])
-
-# with maketrans
-key = "cdefghijklmnopqrstuvwxyzab"
-decodedMessage = msgTxt.translate(msgTxt.maketrans(''.join(alphabet), key))
-
-print(decodedMessage)
-
-''' ANSWER
-i hope you didnt translate it by hand. thats what computers are for. doing it in by hand is inefficient and tha
-t's why this text is so long. using string.maketrans() is recommended. now apply on the url.
-'''
+# Answer: equality
